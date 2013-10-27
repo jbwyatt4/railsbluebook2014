@@ -7,7 +7,8 @@ default['bluebook']['passenger_version'] = '3.0.19'
 
 default['bluebook']['gem_binary'] = "/usr/local/rvm/bin/gem-ruby-#{node.default['bluebook']['combined']}"
 
-default['bluebook']['source'] = "source /usr/local/rvm/scripts/rvm"
+#default['bluebook']['source'] = "source /usr/local/rvm/scripts/rvm"
+default['bluebook']['source'] = "source /etc/profile.d/rvm.sh"
 default['bluebook']['gem_options'] = "--no-ri --no-rdoc"
 
 default['bluebook']['app1'] = "your_rails_app"
