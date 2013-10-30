@@ -17,6 +17,12 @@
 # limitations under the License.
 #
 
+###########################
+#
+# Update & upgrade the node
+#
+###########################
+
 template "/etc/apt/apt.conf.d/15update-stamp" do
   source "15update-stamp"
   mode 0440
@@ -46,6 +52,14 @@ execute "apt-get autoremove -y" do
   user "root"
 end
 
+############################
+#
+# Install fail2ban
+# You can use a template to override the defaults
+#
+############################
+
+
 package "fail2ban"
 
 execute "fail2ban" do
@@ -55,6 +69,14 @@ execute "fail2ban" do
   end
   user "root"
 end
+
+#############################
+#
+# Setup the 'user' user.
+# Please see the section in Deploy Rails BlueBook
+# on how to set the password.
+#
+#############################
 
 user "user" do
   supports :manage_home => true
@@ -66,9 +88,11 @@ user "user" do
   password "$1$.MZ8xPWB$/e/nAWc4C2zidbSVN9M/2/" #password - must be hashed
 end
 
+# Code in other recipes
 include_recipe "deployserver::rubyinstall"
 include_recipe "deployserver::deploysimpleway"
 
+# For apt-get to generate update timestamps.
 execute "Restart after first time" do
   command "touch /etc/chefflag-reboot; reboot"
   user "root"
