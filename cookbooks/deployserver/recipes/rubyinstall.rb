@@ -1,6 +1,6 @@
 apt_package "nodejs"
 apt_package "curl"
-apt_package "git-core"
+apt_package "git"
 apt_package "build-essential"
 apt_package "libcurl4-openssl-dev"
 apt_package "zlib1g-dev"
