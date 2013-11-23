@@ -85,12 +85,34 @@ user "user" do
   gid "users"
   home "/home/user"
   shell "/bin/bash"
-  password "$1$.MZ8xPWB$/e/nAWc4C2zidbSVN9M/2/" #password - must be hashed
+  password node.default['bluebook']['user_password'] #password - must be hashed
+end
+
+directory "/home/user/.ssh" do
+  owner "user"
+end
+
+template "/home/user/.ssh/authorized_keys" do
+  source "authorized_keys"
+  mode 0400
+  owner "user"
+end
+
+# Adds the user to sudoers file
+# Not recommended for security
+execute "Add user to sudoers file" do
+  command "echo 'user     ALL=(ALL:ALL) ALL' >> /etc/sudoers; touch /etc/chefflag-sudo;"
+  user "root"
+  not_if do
+    ::File.exists?('/etc/chefflag-sudo')
+  end
 end
 
 # Code in other recipes
 include_recipe "deployserver::rubyinstall"
+include_recipe "deployserver::dbinstall"
 include_recipe "deployserver::deploysimpleway"
+#include_recipe "deployserver::deployminaway"
 
 # For apt-get to generate update timestamps.
 execute "Restart after first time" do

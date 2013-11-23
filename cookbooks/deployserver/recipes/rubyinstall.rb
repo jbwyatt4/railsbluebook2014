@@ -20,6 +20,7 @@ execute "source" do
   user "root"
 end
 
+# Test to make sure we are running the new Ruby install.
 execute "ruby -v" do
   command "bash -c '#{node.default['bluebook']['source']}; ruby -v'"
   user "root"
@@ -57,14 +58,6 @@ end
 
 template "/opt/nginx/conf/nginx.conf" do
   source "nginx.conf.erb"
-  mode 0440
-  owner "root"
-  group "root"
-  notifies :run, 'execute[nginx-restart]', :immediately
-end
-
-template "/etc/default/nginx" do
-  source "nginx.erb"
   mode 0440
   owner "root"
   group "root"
