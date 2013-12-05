@@ -12,7 +12,7 @@ default[:bluebook][:authorized_keys] = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8
 # Versions
 default['bluebook']['ruby_version'] = '1.9.3'
 default['bluebook']['package_version'] = 'p484'
-default['bluebook']['rails_version'] = '3.2.15'
+default['bluebook']['rails_version'] = '3.2.16'
 default['bluebook']['passenger_version'] = '4.0.25'
 
 # Locations and other settings
