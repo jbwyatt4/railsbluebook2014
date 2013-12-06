@@ -13,7 +13,7 @@ default[:bluebook][:authorized_keys] = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8
 default['bluebook']['ruby_version'] = '1.9.3'
 default['bluebook']['package_version'] = 'p484'
 default['bluebook']['rails_version'] = '3.2.16'
-default['bluebook']['passenger_version'] = '4.0.25'
+default['bluebook']['passenger_version'] = '4.0.26'
 
 # Locations and other settings
 default['bluebook']['combined'] = "#{default['bluebook']['ruby_version']}-#{default['bluebook']['package_version']}"
@@ -24,9 +24,9 @@ default['bluebook']['source'] = "source /etc/profile.d/rvm.sh"
 default['bluebook']['gem_options'] = "--no-ri --no-rdoc"
 
 default['bluebook']['app1'] = "your_rails_app"
-default['bluebook']['webroot'] = "/var/www/"
+default['bluebook']['webroot'] = "/var/www"
 # The current directory is used by Mina to link to the current version of the web app.
-default['bluebook']['total_url_app1'] = "#{default['bluebook']['webroot']}#{default['bluebook']['app1']}/current"
+default['bluebook']['total_url_app1'] = "#{default['bluebook']['webroot']}/#{default['bluebook']['app1']}/current"
 
 default[:bluebook][:db_role_deploy_username] = "deploy"
 default[:bluebook][:db_role_deploy_database] = "your_rails_db"
