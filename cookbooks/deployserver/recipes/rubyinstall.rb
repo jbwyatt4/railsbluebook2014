@@ -5,7 +5,7 @@ apt_package "build-essential"
 apt_package "libcurl4-openssl-dev"
 apt_package "zlib1g-dev"
  
-execute "curl -L get.rvm.io | bash -s stable --ruby=#{node.default['bluebook']['combined']}" do
+execute "curl -L get.rvm.io | bash -s #{node['bluebook']['rvm_version']} --ruby=#{node.default['bluebook']['combined']}" do
   not_if do
     ::File.directory?("/usr/local/rvm")
   end
