@@ -14,6 +14,7 @@ default['bluebook']['ruby_version'] = '1.9.3'
 default['bluebook']['package_version'] = 'p484'
 default['bluebook']['rails_version'] = '3.2.16'
 default['bluebook']['passenger_version'] = '4.0.26'
+default['bluebook']['rvm_version'] = 'stable' # 'stable'
 
 # Locations and other settings
 default['bluebook']['combined'] = "#{default['bluebook']['ruby_version']}-#{default['bluebook']['package_version']}"
