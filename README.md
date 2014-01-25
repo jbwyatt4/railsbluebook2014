@@ -1,10 +1,8 @@
 # Sources for Deploy Rails BlueBook
 
-## Updates
+## Notice
 
-Hello!
-
-The rvm code is currently broken due to a change in how gem binaries are handled. I am working to fix this. However, this is the second time that changes in RVM/rubygems has broken this script. I'm looking into alternatives for the 2015 edition. If anyone manages to fix this, please send me a patch.
+The Ruby installation recipe in this book is locked at 1.9.3-p448 due to a change in how RVM handles Rubygems. This is the second time that changes in RVM/rubygems has broken this script. I'm looking into alternatives for the 2015 edition. If anyone manages to get newer versions working, feel free to send me a patch.
 
 ## Introduction
 
