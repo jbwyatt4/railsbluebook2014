@@ -11,7 +11,7 @@ default[:bluebook][:authorized_keys] = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8
 
 # Versions
 default['bluebook']['ruby_version'] = '1.9.3'
-default['bluebook']['package_version'] = 'p448'
+default['bluebook']['package_version'] = 'p448' # a higher version of the patchlevel will cause problems
 default['bluebook']['rails_version'] = '3.2.16'
 default['bluebook']['passenger_version'] = '4.0.26'
 default['bluebook']['rvm_version'] = '1.23.8' # 'stable'
