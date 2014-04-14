@@ -1,10 +1,10 @@
 source "https://rubygems.org"
- 
-gem 'chef', '10.26'
+
+gem 'chef', '11.12.2'
 gem 'knife-solo'
 gem 'knife-solo_data_bag'
 gem 'ffi'
-gem 'vagrant'
+#gem 'vagrant'
 gem 'multi_json'
  
 gem 'ruby-shadow'
