@@ -11,14 +11,15 @@ default[:bluebook][:authorized_keys] = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8
 
 # Versions
 default['bluebook']['ruby_version'] = '1.9.3'
-default['bluebook']['package_version'] = 'p448' # a higher version of the patchlevel will cause problems
+default['bluebook']['package_version'] = 'p545' # a higher version of the patchlevel will cause problems
 default['bluebook']['rails_version'] = '3.2.17'
-default['bluebook']['passenger_version'] = '4.0.31'
-default['bluebook']['rvm_version'] = '1.23.8' # 'stable'
+default['bluebook']['passenger_version'] = '4.0.41'
+default['bluebook']['rvm_version'] = '1.25.22' # 'stable'
 
 # Locations and other settings
 default['bluebook']['combined'] = "#{default['bluebook']['ruby_version']}-#{default['bluebook']['package_version']}"
-default['bluebook']['gem_binary'] = "/usr/local/rvm/bin/gem-ruby-#{node.default['bluebook']['combined']}"
+#default['bluebook']['gem_binary'] = "/usr/local/rvm/rubies/ruby-#{node.default['bluebook']['combined']}/bin/gem"
+#default['bluebook']['gem_binary'] = "/usr/local/rvm/bin/gem-ruby-#{node.default['bluebook']['combined']}"
 
 #default['bluebook']['source'] = "source /usr/local/rvm/scripts/rvm"
 default['bluebook']['source'] = "source /etc/profile.d/rvm.sh"

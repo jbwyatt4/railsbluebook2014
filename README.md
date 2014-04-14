@@ -2,7 +2,9 @@
 
 ## Notice
 
-The Ruby installation recipe in this book is locked at 1.9.3-p448 due to a change in how RVM handles Rubygems. This is the second time that changes in RVM/rubygems has broken this script. I'm looking into alternatives for the 2015 edition. If anyone manages to get newer versions working, feel free to send me a patch.
+The Ruby installation recipe in this book as of 14 April 2014 should be fixed. Please contact me if you have any problems. An updated version of Deploy Rails BlueBook will follow. Any issues with Heartbleed should be taken care of as well.
+
+The Vagrant gem should no longer be used. Please install from http://www.vagrantup.com/downloads.html (make sure to remove your old version).
 
 ## Introduction
 

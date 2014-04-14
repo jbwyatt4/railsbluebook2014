@@ -26,22 +26,28 @@ execute "ruby -v" do
   user "root"
 end
 
-gem_package "passenger" do
-  package_name "passenger"
-  version node.default['bluebook']['passenger_version']
-  gem_binary node.default['bluebook']['gem_binary']
-  options node.default['bluebook']['gem_options']
+execute "Install Passenger" do
+  command "bash -c '#{node.default['bluebook']['source']}; gem install passenger -v #{node.default['bluebook']['passenger_version']} #{node.default['bluebook']['gem_options']}'"
+  user "root"
 end
 
-gem_package "rails" do
-  package_name "rails"
-  version node.default['bluebook']['rails_version']
-  gem_binary node.default['bluebook']['gem_binary']
-  options node.default['bluebook']['gem_options']
-end
+# Produces errors with the latest patchlevel of Ruby and Chef due to a change with how the gem binary is handled.
+#gem_package "passenger" do
+#  package_name "passenger"
+#  version node.default['bluebook']['passenger_version']
+#  gem_binary node.default['bluebook']['gem_binary']
+#  options node.default['bluebook']['gem_options']
+#end
+
+#gem_package "rails" do
+#  package_name "rails"
+#  version node.default['bluebook']['rails_version']
+#  gem_binary node.default['bluebook']['gem_binary']
+#  options node.default['bluebook']['gem_options']
+#end
 
 execute "Use Passenger to Install Nginx" do
-  command "bash -c 'source /usr/local/rvm/scripts/rvm; passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx'"
+  command "bash -c '#{node.default['bluebook']['source']}; passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx'"
   user "root"
   not_if do
     ::File.directory?("/opt/nginx")
